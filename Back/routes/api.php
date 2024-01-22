@@ -56,6 +56,10 @@ Route::group([
 
     Route::get('/paginas', 'App\Http\Controllers\PaginasController@index');
     Route::post('/paginas', 'App\Http\Controllers\PaginasController@store');
+
+    //Ruta para bitacora
+
+    Route::get('/bitacora/index', 'App\Http\Controllers\BitacoraController@index');
 });
 
 Route::options('{any}', function () {

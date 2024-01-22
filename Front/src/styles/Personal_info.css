@@ -1,15 +1,23 @@
-/* UserInfo.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans:wght@400;600&display=swap');
 
 * {
+   font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
-    font-family: 'Arial', sans-serif;
+    
     background-color: #f4f4f4;
   }
+
+  #body-personal {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
   
   #personal-info {
     display: flex;
@@ -60,6 +68,10 @@
     border-radius: 4px;
     cursor: pointer;
     margin-right: 8px;
+  }
+
+  button:hover {
+    background-color: #45a049;
   }
   
   #logout-buttons button:hover {

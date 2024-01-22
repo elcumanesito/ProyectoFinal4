@@ -62,24 +62,31 @@ const Paginas = () => {
   };
 
   return (
-    <div>
+    <body>
+    <div id="containerPagina">
       {userInfo ? (
-        <>
-          <h2>Bienvenido {userInfo.name} {userInfo.lastname}, selecciona la acción que quieras realizar en las pestañas del menú de la izquierda</h2>
-          <ul>
-            <li><a href="/roles">Roles</a></li>
-            <li><a href="/usuarios">Usuarios</a></li>
-            <li><a href="/bitacoras">Bitacoras</a></li>
-            <li><a href="/paginas">Paginas</a></li>
-          </ul>
-          <button onClick={handleLogout}>Logout</button>
+          <div id="containersitoPagina">
+          <div id="menu-column">
+            <h2>Administración</h2>
+            <hr/>
+            <ul id="menu-list">
+              <li><a href="/roles">Roles</a></li>
+              <li><a href="/usuarios">Usuarios</a></li>
+              <li><a href="/bitacoras">Bitácoras</a></li>
+              <li><a href="/paginas">Páginas</a></li>
+            </ul>
 
+          </div>
+          <div id="paginisitas">
+            <div id ="tituloPagina">
           <h3>Lista de Páginas</h3>
+          <button onClick={handleNuevoPaginaClick}>Agregar Nueva Página</button>
+          </div>
           {loadingPaginas ? (
             <p>Cargando información de páginas...</p>
           ) : (
             <div>
-              <button onClick={handleNuevoPaginaClick}>Agregar Nueva Página</button>
+              
               <table>
                 <thead>
                   <tr>
@@ -100,16 +107,23 @@ const Paginas = () => {
                   ))}
                 </tbody>
               </table>
+             
             </div>
           )}
           {showNuevoPaginaModal && (
             <NuevoPaginaModal onClose={handleNuevoPaginaClose} onPaginaAdded={handlePaginaAdded} />
           )}
-        </>
+           
+        </div>
+        <div className='botonsitoLogout'>
+          <button onClick={handleLogout}>Logout</button>
+          </div>
+        </div>
       ) : (
         <p>Cargando información del usuario...</p>
       )}
     </div>
+    </body>
   );
 };
 

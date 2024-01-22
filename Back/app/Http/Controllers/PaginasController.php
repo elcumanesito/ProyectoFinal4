@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bitacora;
 use Illuminate\Http\Request;
 use App\Models\Paginas;
 
@@ -30,6 +31,13 @@ class PaginasController extends Controller
         ]);
 
         $pagina->save();
+
+         //  usuario autenticado
+         $user_id = auth()->id();
+
+         // Registrar en la bitácora
+         $accion = 'Se creó un nuevo enlace';
+         Bitacora::crearBitacora($user_id, $accion);
 
         return response()->json($pagina, 201);
     }

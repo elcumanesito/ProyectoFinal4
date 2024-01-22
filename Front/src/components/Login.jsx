@@ -35,6 +35,7 @@ const Login = () => {
 
   
     return (
+      <div id='body-log'>
       <div className="container"> {/* Usa la clase container para aplicar estilos */}
         <h2>Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
@@ -46,8 +47,11 @@ const Login = () => {
             <input type="password" name="password" onChange={handleChange} />
           </label>
           <br />
+          <div id='lb1'>
           <button type="submit">Iniciar Sesión</button>
+          </div>
         </form>
+      </div>
       </div>
     );
   };

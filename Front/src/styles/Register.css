@@ -1,15 +1,21 @@
-/* Register.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans:wght@400;600&display=swap');
 
 * {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
+  #bodyReg {
+    display: flex;
+    justify-content: center;
+  }
   body {
-    font-family: 'Arial', sans-serif;
+   
     background-color: #f4f4f4;
-    display: initial;
+    display: flex;
+    justify-content: center;
   }
   
   .container {
@@ -38,6 +44,12 @@
     margin-bottom: 8px;
     color: #555;
   }
+
+  #rb1 {
+    display: flex;
+    justify-content: center;
+
+  }
   
   input {
     width: 100%;
@@ -45,19 +57,6 @@
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
   }
   
   button, form {

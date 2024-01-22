@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bitacora;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Exception;
@@ -37,6 +38,13 @@ class UsersController extends Controller
 
         $usuario->save();
 
+         //  usuario autenticado
+         $user_id = auth()->id();
+
+         // Registrar en la bitácora
+         $accion = 'Se creó un nuevo usuario';
+         Bitacora::crearBitacora($user_id, $accion);
+
         return response()->json($usuario, 201);
     }
 
@@ -52,6 +60,13 @@ class UsersController extends Controller
 
             $usuario->estado = $usuario->estado === 'activo' ? 'inactivo' : 'activo';
             $usuario->save();
+
+             //  usuario autenticado
+        $user_id = auth()->id();
+
+        // Registrar en la bitácora
+        $accion = 'Se cambio el estado del usuario';
+        Bitacora::crearBitacora($user_id, $accion);
 
             return response()->json(['message' => 'Estado de usuario cambiado exitosamente', 'usuario' => $usuario]);
         } catch (\Exception $e) {

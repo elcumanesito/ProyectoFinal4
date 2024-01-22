@@ -76,24 +76,37 @@ const Usuarios = () => {
   };
 
   return (
-    <div>
+    <body>
+      
+    
+    <div id="containerUsuario">
       {userInfo ? (
-        <>
-          <h2>Bienvenido {userInfo.name} {userInfo.lastname}, selecciona la acción que quieras realizar en las pestañas del menú de la izquierda</h2>
-          <ul>
-            <li><a href="/roles">Roles</a></li>
-            <li><a href="/usuarios">Usuarios</a></li>
-            <li><a href="/bitacoras">Bitacoras</a></li>
-            <li><a href="/paginas">Paginas</a></li>
-          </ul>
-          <button onClick={handleLogout}>Logout</button>
+        <div id ="containersitoUsuario">
+         
+         <div id="menu-column">
+            <h2>Administración</h2>
+            <hr/>
+            <ul id="menu-list">
+              <li><a href="/roles">Roles</a></li>
+              <li><a href="/usuarios">Usuarios</a></li>
+              <li><a href="/bitacoras">Bitácoras</a></li>
+              <li><a href="/paginas">Páginas</a></li>
+            </ul>
 
+          </div>
+          
+          <div id= "usuariositos">
+
+          <div id= "tituloUsuarios">
           <h3>Lista de Usuarios</h3>
+          <button onClick={handleNuevoUsuarioClick}>Agregar Nuevo Usuario</button>
+          </div>
+         
           {loadingUsuarios ? (
             <p>Cargando información de usuarios...</p>
           ) : (
             <div>
-              <button onClick={handleNuevoUsuarioClick}>Agregar Nuevo Usuario</button>
+              
               <table>
                 <thead>
                   <tr>
@@ -112,9 +125,9 @@ const Usuarios = () => {
                       <td>{usuario.id}</td>
                       <td>{usuario.email}</td>
                       <td>{usuario.estado}</td>
-                      <td>{usuario.created_at}</td>
+                      <td>{new Date(usuario.created_at).toLocaleString()}</td>
                       <td>{usuario.id_rol}</td>
-                      <td>{usuario.updated_at}</td>
+                      <td>{new Date(usuario.updated_at).toLocaleString()}</td>
                       <td><button onClick={() => handleToggleUsuarioStatus(usuario.id)}>Cambiar Estado</button></td>
                     </tr>
                   ))}
@@ -125,11 +138,16 @@ const Usuarios = () => {
           {showNuevoUsuarioModal && (
             <NuevoUsuarioModal onClose={handleNuevoUsuarioClose} onUsuarioAdded={handleUsuarioAdded} />
           )}
-        </>
+          </div>
+            <div className='botonsitoLogout'>
+          <button id="logout-button" onClick={handleLogout}>Logout</button>
+          </div>
+        </div>
       ) : (
         <p>Cargando información del usuario...</p>
       )}
     </div>
+    </body>
   );
 };
 

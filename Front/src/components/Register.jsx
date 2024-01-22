@@ -34,6 +34,11 @@ const Register = () => {
   };
 
   return (
+    <html>
+
+    <body>
+  
+    <div id='body-reg'>
     <div className="container"> {/* Usa la clase container para aplicar estilos */}
       <h2>Registro</h2>
       <form onSubmit={handleSubmit}>
@@ -49,12 +54,19 @@ const Register = () => {
           <input type="password" name="password" onChange={handleChange} />
         </label>
         <br />
-        <button type="submit">Registrar</button>
+        <div id="rb1">
+        <button  type="submit">Registrar</button>
+        </div>
       </form>
       
       {/* Botón para redireccionar manualmente a la vista de login */}
       <button onClick={redirectToLogin}>Si ya tienes un usuario, ingresa aquí</button>
     </div>
+    </div>
+    </body>
+
+    </html>
+    
   );
 };
 

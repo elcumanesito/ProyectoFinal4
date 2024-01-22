@@ -1,0 +1,40 @@
+#containerUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+
+#containersitoUsuario {
+    display: flex;
+    align-items: center;
+    background-color: rgb(240, 239, 239);
+    width: 1300px;
+}
+
+
+#usuariositos {
+    margin-left: 180px;
+    margin-right: 150px;
+    width: 680px;
+}
+
+#tituloUsuarios {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#tituloUsuarios > button {
+    margin-bottom: 20px;
+}
+
+#tituloUsuarios > h3 {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-weight: bold; 
+    font-size: 20px;
+}

@@ -29,12 +29,12 @@ class RolesController extends Controller
 
         $role->save();
 
-        // //  usuario autenticado
-        // $user_id = auth()->id();
+        //  usuario autenticado
+        $user_id = auth()->id();
 
-        // // Registrar en la bitácora
-        // $accion = 'Se creó un nuevo rol';
-        // Bitacora::crearBitacora($user_id, $accion);
+        // Registrar en la bitácora
+        $accion = 'Se creó un nuevo rol';
+        Bitacora::crearBitacora($user_id, $accion);
 
         return response()->json($role, 201);
     }
@@ -45,6 +45,15 @@ class RolesController extends Controller
         $role = Roles::findOrFail($id);
         $role->estado = ($role->estado == 'activo') ? 'inactivo' : 'activo';
         $role->save();
+
+
+ //  usuario autenticado
+ $user_id = auth()->id();
+
+ // Registrar en la bitácora
+ $accion = 'Cambio de estado de un rol';
+ Bitacora::crearBitacora($user_id, $accion);
+
 
         return response()->json($role);
     }

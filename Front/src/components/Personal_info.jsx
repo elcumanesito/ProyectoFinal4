@@ -97,6 +97,11 @@ const PersonalInfo = () => {
   };
 
   return (
+    
+    <body id="body-personal">
+      
+    
+    <div id="div-personal">
     <div>
       <div id="personal-info">
         <h2>Información Personal</h2>
@@ -158,13 +163,17 @@ const PersonalInfo = () => {
             )}
           </div>
         )}
-      </div>
 
-      <div id="logout-buttons">
+<div id="logout-buttons">
         <button onClick={handleLogout}>Logout</button>
         <button onClick={handleGoToDashboard}>Ir a Dashboard</button>
       </div>
+      </div>
+
+      
     </div>
+    </div>
+    </body>
   );
 };
 

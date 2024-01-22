@@ -1,13 +1,19 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans:wght@400;600&display=swap');
 
 * {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
+
+  #body-log {
+    display: flex;
+    justify-content: center;
+  }
+  
   body {
-    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
   }
   
@@ -47,15 +53,16 @@
   }
   
   button {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #4caf50; 
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: #45a049;
-  }
   
+  
+  #lb1 {
+    display: flex;
+    justify-content: center;
+  }

@@ -62,12 +62,17 @@ const Roles = () => {
   const handleToggleStatus = async (roleId) => {
     try {
       await toggleRoleStatus(roleId);
+      console.log('After toggleRoleStatus');
+  
       // Después de cambiar el estado de un rol, recargar la lista de roles
       const rolesResponse = await getRoles();
+      console.log('After getRoles');
+  
       if (!rolesResponse.ok) {
         throw new Error(`Failed to fetch roles: ${rolesResponse.statusText}`);
       }
-      const rolesData = await rolesResponse.json();
+  
+      const rolesData = await rolesResponse.json(); 
       setRoles(rolesData);
     } catch (error) {
       console.error('Error toggling role status:', error.message);
@@ -75,20 +80,24 @@ const Roles = () => {
   };
 
   return (
-    <div>
-      {userInfo ? (
-        <>
-          <h2>Bienvenido {userInfo.name} {userInfo.lastname}, selecciona la acción que quieras realizar en las pestañas del menú de la izquierda</h2>
-          {/* Aquí puedes agregar tu menú lateral con enlaces a las diferentes vistas */}
-          <ul>
-            <li><a href="/roles">Roles</a></li>
-            <li><a href="/usuarios">Usuarios</a></li>
-            <li><a href="/bitacoras">Bitacoras</a></li>
-            <li><a href="/paginas">Paginas</a></li>
-          </ul>
-          {/* Botón de logout */}
-          <button onClick={handleLogout}>Logout</button>
+    <body>
+    <div id="containerRol">
+      {userInfo ? (     
+          <div id="containersitoRol">
+          <div id="menu-column">
+            <h2>Administración</h2>
+            <hr/>
+            <ul id="menu-list">
+              <li><a href="/roles">Roles</a></li>
+              <li><a href="/usuarios">Usuarios</a></li>
+              <li><a href="/bitacoras">Bitácoras</a></li>
+              <li><a href="/paginas">Páginas</a></li>
+            </ul>
 
+          </div>
+          
+          
+          <div id="rolesitos">
           {/* Lista de roles */}
           <h3>Lista de Roles</h3>
           <table>
@@ -123,12 +132,19 @@ const Roles = () => {
             <h3>Agregar Nuevo Rol</h3>
             <input type="text" value={newRole} onChange={(e) => setNewRole(e.target.value)} />
             <button onClick={handleAddRole}>Agregar Rol</button>
+
+            </div>
           </div>
-        </>
+          <div className='botonsitoLogout'>
+          <button onClick={handleLogout}>Logout</button>
+          </div>
+          </div>
+       
       ) : (
         <p>Cargando información del usuario...</p>
       )}
     </div>
+    </body>
   );
 };
 

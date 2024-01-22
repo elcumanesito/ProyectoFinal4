@@ -1,0 +1,47 @@
+#containerPagina {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+
+#containersitoPagina {
+    display: flex;
+    align-items: center;
+    background-color: rgb(240, 239, 239);
+    width: 1300px;
+}
+
+#paginisitas {
+    margin-left: 180px;
+    margin-right: 150px;
+    width: 680px;
+}
+
+#paginisitas > h3 {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+#tituloPagina {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#tituloPagina > button {
+    margin-bottom: 20px;
+}
+
+#tituloPagina > h3 {
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-weight: bold; 
+    font-size: 20px;
+}

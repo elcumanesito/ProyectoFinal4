@@ -40,7 +40,8 @@ const Dashboard = () => {
       {userInfo ? (
         <div id="dashboard-content">
           <div id="menu-column">
-            
+            <h2>Administración</h2>
+            <hr/>
             <ul id="menu-list">
               <li><a href="/roles">Roles</a></li>
               <li><a href="/usuarios">Usuarios</a></li>
@@ -49,9 +50,13 @@ const Dashboard = () => {
             </ul>
 
           </div>
+          <div>
           <h2 id="welcome-message">Bienvenido {userInfo.name} {userInfo.lastname}, selecciona la acción que quieras realizar en las pestañas del menú de la izquierda</h2>
+          </div>
           {/* Botón de logout */}
+          <div className='botonsitoLogout'>
           <button id="logout-button" onClick={handleLogout}>Logout</button>
+          </div>
         </div>
       ) : (
         <p>Cargando información del usuario...</p>

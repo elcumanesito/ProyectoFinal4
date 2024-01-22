@@ -148,7 +148,7 @@ export const getRoles = async () => {
 
 export const addRole = async (roleData) => {
   try {
-    const response = await fetch(`${BASE_URL}/api/auth/roles`, {
+    const response = await fetch(`${BASE_URL}/api/auth/store`, {
       method: "POST",
       headers: {
         ...getAuthHeaders(),
@@ -299,3 +299,31 @@ export const addPagina = async (paginaData) => {
     throw error;
   }
 };
+
+// Traer la bitacora 
+
+export const getBitacoras = async () => {
+  try {
+    const bitacorasResponse = await fetch(`${BASE_URL}/api/auth/bitacora/index`, {
+      method: "GET",
+      headers: getAuthHeaders(),
+    });
+
+    if (!bitacorasResponse.ok) {
+      console.error('Error fetching bitacoras. Status:', bitacorasResponse.status);
+      const errorText = await bitacorasResponse.text();
+      console.error('Error details:', errorText);
+      throw new Error(`Failed to fetch bitacoras. Status: ${bitacorasResponse.status}. Error: ${errorText}`);
+    }
+
+    const responseBody = await bitacorasResponse.json();
+
+    // console.log(responseBody); 
+
+    return responseBody;
+  } catch (error) {
+    console.error("Error during data fetching:", error.message);
+    throw error;
+  }
+};
+
